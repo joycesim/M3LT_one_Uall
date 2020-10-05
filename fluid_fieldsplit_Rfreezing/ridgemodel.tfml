@@ -81,7 +81,7 @@
       <real_value rank="0">0.0</real_value>
     </current_time>
     <finish_time>
-      <real_value rank="0">100.</real_value>
+      <real_value rank="0">.1</real_value>
     </finish_time>
     <timestep>
       <coefficient name="Timestep">
@@ -1342,7 +1342,7 @@ phi0 = sqrt(rhos*Fmax*U0*1./(rhof*k0*9.81*(rhos-rhof))) # reference porosity</co
         <rank name="Scalar" rank="0">
           <value name="WholeMesh" type="value">
             <constant>
-              <real_value rank="0">0.02</real_value>
+              <real_value rank="0">0.01</real_value>
             </constant>
           </value>
         </rank>
@@ -1358,7 +1358,7 @@ phi0 = sqrt(rhos*Fmax*U0*1./(rhof*k0*9.81*(rhos-rhof))) # reference porosity</co
         <rank name="Scalar" rank="0">
           <value name="WholeMesh" type="value">
             <constant>
-              <real_value rank="0">10.</real_value>
+              <real_value rank="0">100.</real_value>
             </constant>
           </value>
         </rank>
@@ -1390,7 +1390,7 @@ phi0 = sqrt(rhos*Fmax*U0*1./(rhof*k0*9.81*(rhos-rhof))) # reference porosity</co
         <rank name="Scalar" rank="0">
           <value name="WholeMesh" type="value">
             <constant>
-              <real_value rank="0">0.01</real_value>
+              <real_value rank="0">0.1</real_value>
             </constant>
           </value>
         </rank>
