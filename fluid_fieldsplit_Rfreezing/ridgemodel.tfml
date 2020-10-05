@@ -1032,9 +1032,9 @@ def val(x):
                 <string_value type="code" language="cpp" lines="20">GenericFunction_ptr fridge_ptr, phi0_ptr, visc_ptr, T_ptr, Gammass_ptr, Gammass_max_ptr; //T_ptr;
 GenericFunction_ptr pipew_ptr, pipetheta_ptr, pipedepth_ptr;
 mutable bool initialized; // these are mutable so we can change them in
-mutable double phi0;//, visco_phi;
+mutable double phi0;
 double g, rhos, h , T1, Adiff, Ediff, R, eta0;
-double pipew, pipetheta, pipedepth; //iniphi</string_value>
+double pipew, pipetheta, pipedepth, iniphi;</string_value>
               </members>
               <initialization>
                 <string_value type="code" language="cpp" lines="20">initialized = false; // set this to false to start
@@ -1084,7 +1084,10 @@ GenericFunction_ptr pipetheta_ptr = system()-&gt;fetch_coeff("pipetheta")-&gt;ge
 pipetheta = double(*std::dynamic_pointer_cast&lt;dolfin::Constant&gt;(pipetheta_ptr));
 
 GenericFunction_ptr pipedepth_ptr = system()-&gt;fetch_coeff("pipedepth")-&gt;genericfunction_ptr(time());
-pipedepth = double(*std::dynamic_pointer_cast&lt;dolfin::Constant&gt;(pipedepth_ptr));</string_value>
+pipedepth = double(*std::dynamic_pointer_cast&lt;dolfin::Constant&gt;(pipedepth_ptr));
+
+GenericFunction_ptr iniphi_ptr = system()-&gt;fetch_coeff("iniphi")-&gt;genericfunction_ptr(time());
+iniphi = double(*std::dynamic_pointer_cast&lt;dolfin::Constant&gt;(iniphi_ptr));</string_value>
               </initialization>
               <eval>
                 <string_value type="code" language="cpp" lines="20">if (!initialized)
@@ -1133,7 +1136,7 @@ double Gammass_nondim = (Gammass_posplus &gt;0.)? Gammass_posplus/Gammass_max: 0
 // Set up parameters for initial porosity pipe using double tanh
 const double z1 = 0.; // 0.005
 const double z_lambda = 0.035; // 0.01
-const double iniphi = 1.0;
+// const double iniphi = 1.0;
 const double z0 = -pipedepth; 
 // vertical 
 double z_step = 0.5*(std::tanh((x[1]-z0)/z_lambda)-std::tanh(2.*(x[1]-z1)/z_lambda));
