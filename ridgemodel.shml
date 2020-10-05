@@ -27,7 +27,7 @@ pipedepth - initial porosity pipe depth at ridge axis (need it to connect 'well'
       </input_file>
       <run_when name="input_changed_or_output_missing"/>
       <number_processes>
-        <integer_value rank="0">12</integer_value>
+        <integer_value rank="0">2</integer_value>
       </number_processes>
       <parameter_sweep>
         <parameter name="scalefactor">
@@ -44,7 +44,7 @@ pipedepth - initial porosity pipe depth at ridge axis (need it to connect 'well'
         </parameter>
         <parameter name="U0">
           <values>
-            <string_value lines="1">6.33761756280579e-10, 12.6752351256115e-10, 25.3504702512230e-10</string_value>
+            <string_value lines="1">12.6752351256115e-10</string_value>
             <comment>3.168808781402895e-10 = 1cm/yr
 6.33761756280579e-10 = 2cm/yr
 7.9220219535e-10 = 2.5cm/yr
@@ -58,47 +58,6 @@ libspud.set_option("/system::GlobalCoefficients/coefficient::U0/type::Constant/r
             <single_build/>
           </update>
         </parameter>
-        <parameter name="T1">
-          <values>
-            <string_value lines="1">1623</string_value>
-          </values>
-          <update>
-            <string_value type="code" language="python" lines="20">import libspud
-libspud.set_option("/system::GlobalCoefficients/coefficient::T1/type::Constant/rank::Scalar/value::WholeMesh/constant", float(T1))</string_value>
-            <single_build/>
-          </update>
-        </parameter>
-        <parameter name="pipewidth">
-          <values>
-            <string_value lines="1">0.01</string_value>
-          </values>
-          <update>
-            <string_value type="code" language="python" lines="20">import libspud
-libspud.set_option("/system::Fluid/coefficient::pipewidth/type::Constant/rank::Scalar/value::WholeMesh/constant", float(pipewidth))</string_value>
-            <single_build/>
-          </update>
-        </parameter>
-        <parameter name="pipetheta">
-          <values>
-            <string_value lines="1">100.</string_value>
-          </values>
-          <update>
-            <string_value type="code" language="python" lines="20">import libspud
-libspud.set_option("/system::Fluid/coefficient::pipetheta/type::Constant/rank::Scalar/value::WholeMesh/constant", float(pipetheta))</string_value>
-            <single_build/>
-          </update>
-        </parameter>
-        <parameter name="pipedepth">
-          <values>
-            <string_value lines="1">0.1</string_value>
-          </values>
-          <update>
-            <string_value type="code" language="python" lines="20">import libspud
-libspud.set_option("/system::Fluid/coefficient::pipedepth/type::Constant/rank::Scalar/value::WholeMesh/constant", float(pipedepth))</string_value>
-            <single_build/>
-          </update>
-          <comment>Depth of initial porosity pipe</comment>
-        </parameter>
         <parameter name="Rrate">
           <values>
             <string_value lines="1">200.</string_value>
@@ -108,21 +67,11 @@ libspud.set_option("/system::Fluid/coefficient::pipedepth/type::Constant/rank::S
 libspud.set_option("/system::GlobalCoefficients/coefficient::FreezingRate/type::Constant/rank::Scalar/value::WholeMesh/constant", float(Rrate))</string_value>
             <single_build/>
           </update>
-          <comment>Depth of initial porosity pipe</comment>
-        </parameter>
-        <parameter name="Rzeta">
-          <values>
-            <string_value lines="1">1.</string_value>
-          </values>
-          <update>
-            <string_value type="code" language="python" lines="20">import libspud
-libspud.set_option("/system::GlobalCoefficients/coefficient::Rzeta/type::Constant/rank::Scalar/value::WholeMesh/constant", float(Rzeta))</string_value>
-            <single_build/>
-          </update>
+          <comment>Freezing rate constant. This should change proportionately with Spreading rate. 100, 200, 400 for half spreading rate 2, 4, 8 cm/yr. </comment>
         </parameter>
         <parameter name="K0">
           <values>
-            <string_value lines="1">4.e-7, 4.e-9</string_value>
+            <string_value lines="1">4.e-7</string_value>
           </values>
           <update>
             <string_value type="code" language="python" lines="20">import libspud
@@ -148,13 +97,6 @@ libspud.set_option("/system::TVP_solid/coefficient::K0/type::Constant/rank::Scal
               <update>
                 <string_value type="code" language="python" lines="20">import libspud
 libspud.set_option("/system::GlobalCoefficients/coefficient::U0/type::Constant/rank::Scalar/value::WholeMesh/constant", float(U0))</string_value>
-                <single_build/>
-              </update>
-            </parameter>
-            <parameter name="T1">
-              <update>
-                <string_value type="code" language="python" lines="20">import libspud
-libspud.set_option("/system::GlobalCoefficients/coefficient::T1/type::Constant/rank::Scalar/value::WholeMesh/constant", float(T1))</string_value>
                 <single_build/>
               </update>
             </parameter>
