@@ -2,7 +2,8 @@
 
 Two phase flow models applied to mid-ocean ridges
 
-This suite of models accompany the paper submitted to PEPI-LAB.
+This suite of models accompany the paper:
+Sim, S. J., Spiegelman, M., Stegman, D. R., & Wilson, C. (2020). The influence of spreading rate and permeability on melt focusing beneath mid-ocean ridges. Physics of the Earth and Planetary Interiors, 304, 106486. https://doi.org/10.1016/j.pepi.2020.106486
 
 To run all six models presented in the paper:
 1) Build TerraFERMA (https://terraferma.github.io/) 
